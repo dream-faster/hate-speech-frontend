@@ -37,8 +37,6 @@ with st.form("my_form"):
             df = df.to_html(render_links=True,escape=False,col_space=100)
             
             st.text(f'Prediction with pipeline: {pipeline} are')
-            
-            print(df)
             st.markdown(df, unsafe_allow_html=True)
             
             st.subheader(f"Hierarchy of pipeline: {pipeline}")
@@ -48,10 +46,39 @@ with st.form("my_form"):
 
 
 '''
-# About Hate-Speech Detection
+# Using the Hate-Speech-Api
 
-This is some _markdown_.
+The root URL to the API is: ``https://hatespeech-api.herokuapp.com/``
+
+## Prediction endpoint (get)
+
+Returns the category for a given text using the desired trained pipeline
+
+\tReturn values:
+\t0 - not hate-speech or 
+\t1 - hate-speech for the given text
+
+- Endpoint url: ``/detect``
+- Required params: ``text`` and ``pipeline_name``
+
+- Construction of the get request: 
+    ``root_url`` + ``/detect?`` + ``text=This is an example tweet`` + ``&`` + ``pipeline_name=random``
+- example: ``https://hatespeech-api.herokuapp.com/detect?text=This is an example tweet&pipeline_name=random``
+
+
+## Pipeline hierarchy endpoint (get)
+
+Returns the structure of the pipeline queried.
+
+- Endpoint url: ``/pipeline``
+- Required params: ``pipeline_name``
+
+- example: ``https://hatespeech-api.herokuapp.com/pipeline?pipeline_name=random``
+
 
 # About Modular Pipelines
-Hate Speech detection was built on **Modular Pipelines (mopi)**, 
+Hate Speech detection was built on **``Modular Pipelines (mopi)``**, a lightweight & extensible library 
+to create complex multi-model and multi-modal pipelines, including ``Ensembles`` and ``Meta-Models``
+
+Check the project out on [GitHub Repo](https://github.com/applied-exploration/modular-pipelines).  
 '''
