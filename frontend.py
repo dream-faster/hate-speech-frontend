@@ -1,4 +1,3 @@
-from turtle import width
 import streamlit as st
 from utils import get_prediction, get_hierarchy
 import pandas as pd
