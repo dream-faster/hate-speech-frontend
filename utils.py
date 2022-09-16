@@ -6,7 +6,7 @@ is_prod = os.environ.get('IS_HEROKU', None)
 
 class Endpoints(Enum):
     local = "http://127.0.0.1:5000"
-    remote = "https://hate-speech-frontend.herokuapp.com"
+    remote = "https://hatespeech-api.herokuapp.com"
 
 if is_prod:
     url_root = Endpoints.remote.value
@@ -32,5 +32,4 @@ def get_hierarchy(pipeline_name:str = 'random'):
     PARAMS = {"pipeline_name": pipeline_name}
 
     data = fetch(URL, PARAMS)
-    print(data)
     return data['hierarchy']
