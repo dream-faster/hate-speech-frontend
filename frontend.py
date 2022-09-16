@@ -52,7 +52,7 @@ The root URL to the API is: ``https://hatespeech-api.herokuapp.com/``
 
 ## Prediction endpoint (get)
 
-Returns the category for a given text using the desired trained pipeline
+Returns the category for a given text(s) using the desired trained pipeline.
 
 \tReturn values:
 \t0 - not hate-speech or 
@@ -60,6 +60,7 @@ Returns the category for a given text using the desired trained pipeline
 
 - Endpoint url: ``/detect``
 - Required params: ``text`` and ``pipeline_name``
+    You can query multiple text at the same time by adding a ``;`` delimiter between the texts.
 
 - Construction of the get request: 
     ``root_url`` + ``/detect?`` + ``text=This is an example tweet`` + ``&`` + ``pipeline_name=random``
